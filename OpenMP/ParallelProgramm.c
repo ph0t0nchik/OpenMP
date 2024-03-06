@@ -22,6 +22,12 @@ int C[N][N] = { 0 };
 int main()
 {
     /*
+    printf("number of threads: %d\n", omp_get_num_threads());
+    #pragma omp parallel
+        printf("Thread %d from %d says \"Hello World!\"\n",omp_get_thread_num(), omp_get_num_threads());
+        printf("Finished.\n");
+    */
+    /*
     int A[N][N] = {
         {2, 3, 4, 5},
         {9, 8, 7, 6},
@@ -134,6 +140,6 @@ int main()
         scanf_s(" %c", &choice); // Пробел перед %c для игнорирования пробелов и переводов строк
 
     }while (choice == 'y' || choice == 'Y');
-
+    */
     return 0;
 }
