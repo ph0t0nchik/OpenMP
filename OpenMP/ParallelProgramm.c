@@ -4,7 +4,7 @@
 #include <locale.h>
 
 
-#define N 500
+#define N 1024
 
 void printMatrix(int matrix[N][N]) {
     for (int i = 0; i < N; i++) {
@@ -22,7 +22,6 @@ int C[N][N] = { 0 };
 
 int main()
 {
-    setlocale(LC_ALL, "Rus");
     /*
     int A[N][N] = {
         {2, 3, 4, 5},
@@ -37,17 +36,16 @@ int main()
         {4, 3, 2, 5}
     };
     */
-
+    printf("Matrix size = %d\n", N);
     char choice;
     do {
         double start_time = 0, end_time = 0;
         int i, j, k, number;
        
+        
         printf("\nSet_num_threads: ");
         scanf_s("%d", &number);
-        omp_set_num_threads(number, "\n");
-
-        start_time = omp_get_wtime();
+        omp_set_num_threads(number);
 
         //fillMatrixRandom(A);
         #pragma omp parallel for private (i,j) shared (A)
@@ -57,7 +55,7 @@ int main()
                 A[i][j] = rand() % (100 + 1); // Генерация случайного числа от 1 до 100
             }
         }
-        //printMatrix(B);
+        //fillMatrixRandom(B);
         #pragma omp parallel for private (i,j) shared (B)
         for (i = 0; i < N; i++) {
             for (j = 0; j < N; j++) {
@@ -65,6 +63,8 @@ int main()
                 B[i][j] = rand() % (100 + 1); // Генерация случайного числа от 1 до 100
             }
         }
+
+        start_time = omp_get_wtime();
 
         //firstShiftRowsLeftForMatrixA(A);
         #pragma omp parallel for private(i, j) shared(A)
