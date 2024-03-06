@@ -3,7 +3,6 @@
 #include <tchar.h>
 #include <locale.h>
 
-
 #define N 1024
 
 void printMatrix(int matrix[N][N]) {
