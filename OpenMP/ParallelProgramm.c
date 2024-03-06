@@ -1,7 +1,8 @@
 #include "omp.h"
 #include <stdio.h>            // подключаем заголовочный файл stdio.h
 #include <tchar.h>
-#include <stdlib.h>   // для подключения функции malloc
+#include <locale.h>
+
 
 #define N 500
 
@@ -21,6 +22,7 @@ int C[N][N] = { 0 };
 
 int main()
 {
+    setlocale(LC_ALL, "Rus");
     /*
     int A[N][N] = {
         {2, 3, 4, 5},

@@ -76,6 +76,10 @@ void matrixMultiply(int matrixA[N][N], int matrixB[N][N], int matrixC[N][N]) {
     }
 }
 
+int A[N][N] = { 0 };
+int B[N][N] = { 0 };
+int C[N][N] = { 0 };
+
 int _tmain(int argc, _TCHAR* argv[])
 {   
     /*
@@ -94,9 +98,6 @@ int _tmain(int argc, _TCHAR* argv[])
     */
 
     double start_time, end_time;
-    int A[N][N] = { 0 };
-    int B[N][N] = { 0 };
-    int C[N][N] = { 0 };
 
     start_time = omp_get_wtime();
 
